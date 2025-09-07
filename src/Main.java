@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Opcion 1. Ejercicio teclado y aleatorio");
         System.out.println("Opcion 2. Dados");
         System.out.println("Opcion 3. Indice de masa corporal");
-        System.out.println("Opcion 4. Ejercicio Ind");
+        System.out.println("Opcion 4. Conversor de unidades (Ejercicio Ind)");
         System.out.println("Opcion 5. Ejercicio en clase");
         System.out.println("Opcion 6. Salir");
         opcion = valor.nextInt();
@@ -29,6 +29,7 @@ public class Main {
             case 3:
                 System.out.println(IMC());
             case 4:
+                conversor();
                 break;
             case 5:
                 break;
@@ -158,6 +159,79 @@ public class Main {
             System.out.println("la suma de dos o mas dados son iguales");
         }
         System.out.println("Fin");
+    }
+
+    public static void conversor(){
+        int ind;
+        double und, conver;
+        Scanner valor = new Scanner(System.in);
+        do {
+            System.out.println("Elige una opcion de conversion:  ");
+            System.out.println("Opcion 1. Metros a Yardas");
+            System.out.println("Opcion 2. Yardas a Metros");
+            System.out.println("Opcion 3. Metros a Pies");
+            System.out.println("Opcion 4. Pies a metros");
+            System.out.println("Opcion 5. Metros a Pulgadas");
+            System.out.println("Opcion 6. Pulgadas a Metros");
+            System.out.println("Opcion 7. Salir");
+            ind = valor.nextInt();
+            switch (ind) {
+                case 1:
+                    System.out.println("Ingresa los metros a convertir");
+                    und = valor.nextInt();
+                    conver = und * 1.093;
+                    System.out.println("El resultado es: " + conver + " yardas");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case 2:
+                    System.out.println("Ingresa las yardas a convertir");
+                    und = valor.nextInt();
+                    conver = und / 1.093;
+                    System.out.println("El resultado es: " + conver + " metros");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case 3:
+                    System.out.println("Ingresa los metros a convertir");
+                    und = valor.nextInt();
+                    conver = und * 3.28;
+                    System.out.println("El resultado es: " + conver + " pies");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case 4:
+                    System.out.println("Ingresa los pies a convertir");
+                    und = valor.nextInt();
+                    conver = und / 3.28;
+                    System.out.println("El resultado es: " + conver + " metros");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case 5:
+                    System.out.println("Ingresa los metros a convertir");
+                    und = valor.nextInt();
+                    conver = und * 39.37;
+                    System.out.println("El resultado es: " + conver + " pulgadas");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case 6:
+                    System.out.println("Ingresa las pulgadas a convertir");
+                    und = valor.nextInt();
+                    conver = (double) (und / 39.37);
+                    System.out.println("El resultado es: " + conver + " metros");
+                    System.out.println("---------FIN----------");
+                    ind=7;
+                    break;
+                case  7:
+                    System.out.println("Gracias");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intenta de nuevo");
+                    break;
+            }
+        }while (ind != 7);
     }
 
 }
