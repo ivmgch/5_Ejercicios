@@ -11,35 +11,36 @@ public class Main {
         int opcion;
         Scanner valor = new Scanner(System.in);
         do {
-        System.out.println("Elige una opcion:  ");
-        System.out.println("Opcion 1. Ejercicio teclado y aleatorio");
-        System.out.println("Opcion 2. Dados");
-        System.out.println("Opcion 3. Indice de masa corporal");
-        System.out.println("Opcion 4. Conversor de unidades (Ejercicio Ind)");
-        System.out.println("Opcion 5. Ejercicio en clase");
-        System.out.println("Opcion 6. Salir");
-        opcion = valor.nextInt();
-        switch (opcion) {
-            case 1:
-                ejerciciot_a();
-                break;
-            case 2:
-                dados();
-                break;
-            case 3:
-                System.out.println(IMC());
-            case 4:
-                conversor();
-                break;
-            case 5:
-                break;
-            case 6:
-                System.out.println("Gracias por usar");
-                break;
-            default:
-                System.out.println("Opcion no valida, intenta de nuevo");
-                break;
-        }
+            System.out.println("Elige una opcion:  ");
+            System.out.println("Opcion 1. Ejercicio teclado y aleatorio");
+            System.out.println("Opcion 2. Dados");
+            System.out.println("Opcion 3. Indice de masa corporal");
+            System.out.println("Opcion 4. Conversor de unidades (Ejercicio Ind)");
+            System.out.println("Opcion 5. Ejercicio en clase");
+            System.out.println("Opcion 6. Salir");
+            opcion = valor.nextInt();
+            switch (opcion) {
+                case 1:
+                    ejerciciot_a();
+                    break;
+                case 2:
+                    dados();
+                    break;
+                case 3:
+                    System.out.println(IMC());
+                case 4:
+                    conversor();
+                    break;
+                case 5:
+                    ejercicio_Saberes();
+                    break;
+                case 6:
+                    System.out.println("Gracias por usar");
+                    break;
+                default:
+                    System.out.println("Opcion no valida, intenta de nuevo");
+                    break;
+            }
         }while (opcion != 6);
     }
 
@@ -234,4 +235,42 @@ public class Main {
         }while (ind != 7);
     }
 
+    public static void ejercicio_Saberes() {
+        int pasos1;
+        int pasos2;
+        int sum1 = 0;
+        int sum2 = 0;
+        Random aleat1= new Random();
+        Random aleat2= new Random();
+        System.out.println("-------Bienvenido a la carrera-------");
+        for (int i = 1; sum2 <= 50 && sum1 <= 50; ++i) {
+            System.out.println("--------Los pasos de los corredores son:-------");
+            pasos1 = aleat1.nextInt(6) + 1;System.out.println("pasos del corredor 1: " + pasos1);
+            pasos2 = aleat2.nextInt(6) + 1;System.out.println("pasos del corredor 2: " + pasos2);
+            if (pasos1 == 6) {
+                pasos1 = pasos1 - 2;
+                System.out.println("El corredor 1 es penalizado por 6 pasos se le restan 2 pasos");
+            }else if(pasos2 == 6) {
+                pasos2 = pasos2 - 2;
+                System.out.println("El corredor 2 es penalizado por 6 pasos se le restan 2 pasos");
+            }
+            System.out.println("------El acumulado de los corredores es ------" );
+            sum1 += pasos1;
+            System.out.println("-----El corredor 1 lleva estos pasos: " + sum1 + " -----");
+            sum2 += pasos2;
+            System.out.println("-----El corredor 2 lleva estos pasos: " + sum2 + " -----");
+        }
+        System.out.println("-------------------RESULTADOS FINALES-------------------");
+        System.out.println("Resultado del corredor 1 " + sum1);
+        System.out.println("Resultado del corredor 2 " + sum2);
+        if (sum1 > sum2) {
+            System.out.println("Corredor 1 gana");
+        }else if(sum2 > sum1){
+            System.out.println("Corredor 2 gana");
+        }
+        else{
+            System.out.println("Los corredores empataron");
+        }
+        System.out.println("-------------------Fin-------------------");
+    }
 }
